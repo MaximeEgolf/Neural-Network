@@ -1,2 +1,3 @@
 .vs/
-x64/
+NeuralNetwork/.executable/
+NeuralNetwork/.intermediate/
