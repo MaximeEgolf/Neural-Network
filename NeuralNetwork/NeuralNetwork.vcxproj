@@ -133,14 +133,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Network\Layer.cpp" />
-    <ClCompile Include="Utils\Array1D.cpp" />
-    <ClCompile Include="Utils\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Utils\Array2D.h" />
     <ClInclude Include="Network\Layer.h" />
     <ClInclude Include="Utils\Array1D.h" />
-    <ClInclude Include="Utils\Utils.h" />
+    <ClInclude Include="Utils\IPrint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
