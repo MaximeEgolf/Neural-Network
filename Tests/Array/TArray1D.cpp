@@ -10,10 +10,10 @@ namespace TArray
 	TEST_CLASS(TArray1D)
 	{
 	public:
-
+		typedef int Type;
 		TEST_METHOD(DefaultConstructor)
 		{
-			Array1D array = Array1D<int, 5>();
+			Array1D array = Array1D<Type, 5>();
 
 			Assert::AreEqual(0, array.GetAtIndex(0));
 			Assert::AreEqual(0, array.GetAtIndex(1));
@@ -21,12 +21,12 @@ namespace TArray
 			Assert::AreEqual(0, array.GetAtIndex(3));
 			Assert::AreEqual(0, array.GetAtIndex(4));
 
-			TLogger<Array1D<int, 5>>::Print(array);
+			TLogger<Array1D<Type, 5>>::Print(array);
 		}
 
 		TEST_METHOD(InitializerListConstructor)
 		{
-			Array1D array = Array1D<int, 5>({ 0,1,2,3,4 });
+			Array1D array = Array1D<Type, 5>({ 0,1,2,3,4 });
 
 			Assert::AreEqual(0, array.GetAtIndex(0));
 			Assert::AreEqual(1, array.GetAtIndex(1));
@@ -34,12 +34,12 @@ namespace TArray
 			Assert::AreEqual(3, array.GetAtIndex(3));
 			Assert::AreEqual(4, array.GetAtIndex(4));
 
-			TLogger<Array1D<int, 5>>::Print(array);
+			TLogger<Array1D<Type, 5>>::Print(array);
 		}
 
 		TEST_METHOD(SetAtIndex)
 		{
-			Array1D array = Array1D<int, 5>();
+			Array1D array = Array1D<Type, 5>();
 
 			array.SetAtIndex(0, 0);
 			array.SetAtIndex(1, 1);
@@ -53,7 +53,7 @@ namespace TArray
 			Assert::AreEqual(3, array.GetAtIndex(3));
 			Assert::AreEqual(4, array.GetAtIndex(4));
 
-			TLogger<Array1D<int, 5>>::Print(array);
+			TLogger<Array1D<Type, 5>>::Print(array);
 		}
 	};
 }

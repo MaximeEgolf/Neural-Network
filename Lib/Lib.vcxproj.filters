@@ -30,6 +30,9 @@
     <ClInclude Include="Precompile\pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Concept\Numeric.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Precompile\pch.cpp">

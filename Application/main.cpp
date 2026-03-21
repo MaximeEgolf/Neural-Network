@@ -4,7 +4,6 @@
 
 #define INPUTS 2
 #define INTER1 3
-#define INTER2 3
 #define OUTPUTS 2
 
 typedef double Type;
@@ -12,7 +11,7 @@ typedef double Type;
 int main()
 {
 	// Random Seed
-	srand(time(NULL));
+	srand(static_cast<unsigned int>(time(nullptr)));
 
 	// Input
 	Array1D inputs = Array1D<Type, INPUTS>({0.12, -0.51});

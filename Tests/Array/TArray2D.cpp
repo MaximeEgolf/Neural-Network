@@ -10,22 +10,23 @@ namespace TArray
 	TEST_CLASS(TArray2D)
 	{
 	public:
+		typedef int Type;
 		TEST_METHOD(DefaultConstructor)
 		{
-			Array2D array = Array2D<int, 3, 3>();
+			Array2D array = Array2D<Type, 3, 3>();
 
 			Assert::AreEqual(0, array.GetAtIndex(0, 0));
 			Assert::AreEqual(0, array.GetAtIndex(1, 1));
 			Assert::AreEqual(0, array.GetAtIndex(2, 2));
 
-			TLogger<Array2D<int, 3, 3>>::Print(array);
+			TLogger<Array2D<Type, 3, 3>>::Print(array);
 		}
 
 		TEST_METHOD(InitializerListConstructor)
 		{
-			Array2D array = Array2D<int, 3, 3>({{0,1,2}, 
-												{3,4,5}, 
-												{6,7,8}});
+			Array2D array = Array2D<Type, 3, 3>({{0,1,2},
+												 {3,4,5}, 
+												 {6,7,8}});
 
 			Assert::AreEqual(0, array.GetAtIndex(0, 0));
 			Assert::AreEqual(1, array.GetAtIndex(0, 1));
@@ -37,14 +38,14 @@ namespace TArray
 			Assert::AreEqual(7, array.GetAtIndex(2, 1));
 			Assert::AreEqual(8, array.GetAtIndex(2, 2));
 
-			TLogger<Array2D<int, 5, 5>>::Print(array);
+			TLogger<Array2D<Type, 5, 5>>::Print(array);
 		}
 
 		TEST_METHOD(SetAtIndex)
 		{
-			Array2D array = Array2D<int, 3, 3>({{0,1,2},
-												{3,4,5},
-												{6,7,8}});
+			Array2D array = Array2D<Type, 3, 3>({{0,1,2},
+												 {3,4,5},
+												 {6,7,8}});
 
 			array.SetAtIndex(0, 0, 8);
 			array.SetAtIndex(0, 1, 7);
@@ -66,7 +67,7 @@ namespace TArray
 			Assert::AreEqual(1, array.GetAtIndex(2, 1));
 			Assert::AreEqual(0, array.GetAtIndex(2, 2));
 
-			TLogger<Array2D<int, 5, 5>>::Print(array);
+			TLogger<Array2D<Type, 5, 5>>::Print(array);
 		}
 	};
 }

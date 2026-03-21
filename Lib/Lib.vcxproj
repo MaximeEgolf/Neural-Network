@@ -24,7 +24,7 @@
     <ProjectGuid>{fc75647c-93fc-4296-89fc-aaa44d266ef5}</ProjectGuid>
     <RootNamespace>Lib</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>NeuralNetworkLib</ProjectName>
+    <ProjectName>Lib</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Concept\Numeric.h" />
     <ClInclude Include="Network\Layer.h" />
     <ClInclude Include="Array\Array1D.h" />
     <ClInclude Include="Array\Array2D.h" />
