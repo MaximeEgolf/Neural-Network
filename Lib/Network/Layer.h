@@ -14,13 +14,13 @@ public:
 	Layer();
 	Array1D<Type, NumOuts> CalculateOutputs(const Array1D<Type, NumIns>& inputs);
 
-	const Array2D<Type, NumOuts, NumIns>& GetWeights() const { return m_Weights; }
+	const Array2D<Type, NumIns, NumOuts>& GetWeights() const { return m_Weights; }
 	const Array1D<Type, NumOuts>& GetBiases() const { return m_Biases; }
 	const Array1D<Type, NumOuts>& GetOutputs() const { return m_Outputs; }
 
 	void Print(const char* name = "") const override;
 private:
-	Array2D<Type, NumOuts, NumIns> m_Weights;
+	Array2D<Type, NumIns, NumOuts> m_Weights;
 	Array1D<Type, NumOuts> m_Biases;
 	Array1D<Type, NumOuts> m_Outputs;
 };
@@ -40,7 +40,7 @@ Array1D<Type, NumOuts> Layer<Type, NumIns, NumOuts>::CalculateOutputs(const Arra
 		Type output = m_Biases.GetAtIndex(out);
 		for (uint8_t in = 0; in < NumIns; in++)
 		{
-			output += anArrayInput.GetAtIndex(in) * m_Weights.GetAtIndex(in, out);
+			output += anArrayInput.GetAtIndex(in) * m_Weights.GetAtIndex(out, in);
 		}
 		m_Outputs.SetAtIndex(out, output);
 	}

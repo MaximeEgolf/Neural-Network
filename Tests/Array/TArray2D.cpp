@@ -11,7 +11,7 @@ namespace TArray
 	{
 	public:
 		typedef int Type;
-		TEST_METHOD(DefaultConstructor)
+		TEST_METHOD(DefaultConstructorSquareMatrix)
 		{
 			Array2D array = Array2D<Type, 3, 3>();
 
@@ -22,7 +22,7 @@ namespace TArray
 			TLogger<Array2D<Type, 3, 3>>::Print(array);
 		}
 
-		TEST_METHOD(InitializerListConstructor)
+		TEST_METHOD(InitializerListConstructorSquareMatrix)
 		{
 			Array2D array = Array2D<Type, 3, 3>({{0,1,2},
 												 {3,4,5}, 
@@ -38,10 +38,10 @@ namespace TArray
 			Assert::AreEqual(7, array.GetAtIndex(2, 1));
 			Assert::AreEqual(8, array.GetAtIndex(2, 2));
 
-			TLogger<Array2D<Type, 5, 5>>::Print(array);
+			TLogger<Array2D<Type, 3, 3>>::Print(array);
 		}
 
-		TEST_METHOD(SetAtIndex)
+		TEST_METHOD(SetAtIndexSquareMatrix)
 		{
 			Array2D array = Array2D<Type, 3, 3>({{0,1,2},
 												 {3,4,5},
@@ -67,7 +67,61 @@ namespace TArray
 			Assert::AreEqual(1, array.GetAtIndex(2, 1));
 			Assert::AreEqual(0, array.GetAtIndex(2, 2));
 
-			TLogger<Array2D<Type, 5, 5>>::Print(array);
+			TLogger<Array2D<Type, 3, 3>>::Print(array);
+		}
+
+		TEST_METHOD(DefaultConstructorMatrix)
+		{
+			Array2D array = Array2D<Type, 2, 3>();
+
+			Assert::AreEqual(0, array.GetAtIndex(0, 0));
+			Assert::AreEqual(0, array.GetAtIndex(0, 1));
+			Assert::AreEqual(0, array.GetAtIndex(1, 0));
+			Assert::AreEqual(0, array.GetAtIndex(1, 1));
+			Assert::AreEqual(0, array.GetAtIndex(2, 0));
+			Assert::AreEqual(0, array.GetAtIndex(2, 1));
+
+			TLogger<Array2D<Type, 2, 3>>::Print(array);
+		}
+
+		TEST_METHOD(InitializerListConstructorMatrix)
+		{
+			Array2D array = Array2D<Type, 2, 3>({{0,1},
+												 {2,3},
+												 {4,5}});
+
+			Assert::AreEqual(0, array.GetAtIndex(0, 0));
+			Assert::AreEqual(1, array.GetAtIndex(0, 1));
+			Assert::AreEqual(2, array.GetAtIndex(1, 0));
+			Assert::AreEqual(3, array.GetAtIndex(1, 1));
+			Assert::AreEqual(4, array.GetAtIndex(2, 0));
+			Assert::AreEqual(5, array.GetAtIndex(2, 1));
+
+
+			TLogger<Array2D<Type, 2, 3>>::Print(array);
+		}
+
+		TEST_METHOD(SetAtIndexMatrix)
+		{
+			Array2D array = Array2D<Type, 2, 3>({{0,1},
+												 {2,3},
+												 {4,5} });
+
+			array.SetAtIndex(0, 0, 5);
+			array.SetAtIndex(0, 1, 4);
+			array.SetAtIndex(1, 0, 3);
+			array.SetAtIndex(1, 1, 2);
+			array.SetAtIndex(2, 0, 1);
+			array.SetAtIndex(2, 1, 0);
+
+			Assert::AreEqual(5, array.GetAtIndex(0, 0));
+			Assert::AreEqual(4, array.GetAtIndex(0, 1));
+			Assert::AreEqual(3, array.GetAtIndex(1, 0));
+			Assert::AreEqual(2, array.GetAtIndex(1, 1));
+			Assert::AreEqual(1, array.GetAtIndex(2, 0));
+			Assert::AreEqual(0, array.GetAtIndex(2, 1));
+
+			TLogger<Array2D<Type, 2, 3>>::Print(array);
 		}
 	};
 }
