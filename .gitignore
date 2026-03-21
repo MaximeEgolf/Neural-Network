@@ -1,3 +1,4 @@
 .vs/
-NeuralNetwork/.executable/
-NeuralNetwork/.intermediate/
+Application/.build/
+Lib/.build/
+Tests/.build/

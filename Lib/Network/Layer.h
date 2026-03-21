@@ -1,8 +1,10 @@
 #pragma once
-#include <iostream>
+#include "Precompile/pch.h"
 
-#include "../Utils/Array1D.h"
-#include "../Utils/Array2D.h"
+#include "Interface/IPrint.h"
+
+#include "Array/Array1D.h"
+#include "Array/Array2D.h"
 
 template <typename Type, uint8_t NumIns, uint8_t NumOuts>
 class Layer: public IPrint

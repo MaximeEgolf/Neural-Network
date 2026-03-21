@@ -1,14 +1,13 @@
 #pragma once
 
-#include <format>
-#include <array>
-#include "IPrint.h"
+#include "Precompile/pch.h"
+#include "Interface/IPrint.h"
 
 template <typename Type, uint8_t NumColumns, uint8_t NumRows>
 class Array2D : public IPrint
 {
 public:
-	Array2D() = default;
+	Array2D();
 	Array2D(std::initializer_list<std::initializer_list<Type>> someArgs);
 
 	void SetAtIndex(uint8_t aColumnIndex, uint8_t aRowIndex, const Type& aType);
@@ -19,6 +18,18 @@ public:
 private:
 	std::array<std::array<Type, NumRows>, NumColumns> m_Array;
 };
+
+template<typename Type, uint8_t NumColumns, uint8_t NumRows>
+Array2D<Type, NumColumns, NumRows>::Array2D()
+{
+	for (uint8_t row = 0; row < NumColumns; row++)
+	{
+		for (uint8_t col = 0; col < NumColumns; col++)
+		{
+			SetAtIndex(row, col, (Type)0);
+		}
+	}
+}
 
 template<typename Type, uint8_t NumColumns, uint8_t NumRows>
 Array2D<Type, NumColumns, NumRows>::Array2D(std::initializer_list<std::initializer_list<Type>> someArgs)
@@ -68,7 +79,7 @@ void Array2D<Type, NumColumns, NumRows>::Print(const char* aName) const
 	for (int row = 0; row < NumRows; row++) {
 		std::cout << "{\t";
 		for (int col = 0; col < NumColumns; col++) {
-			std::cout << std::format("{:.2f}",GetAtIndex(row, col)) << "\t";
+			std::cout << GetAtIndex(row, col) << "\t";
 		}
 		std::cout << "}," << std::endl;
 	}

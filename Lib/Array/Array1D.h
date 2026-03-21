@@ -1,14 +1,13 @@
 #pragma once
 
-#include <format>
-#include <array>
-#include "IPrint.h"
+#include "Precompile/pch.h"
+#include "Interface/IPrint.h"
 
 template <typename Type, uint8_t NumColumns>
 class Array1D: public IPrint
 {
 public:
-    Array1D() = default;
+    Array1D();
 	Array1D(std::initializer_list<Type> someArgs);
 
     void SetAtIndex(uint8_t aColumnIndex, const Type& aType);
@@ -19,6 +18,15 @@ public:
 private:
 	std::array<Type, NumColumns> m_Array;
 };
+
+template<typename Type, uint8_t NumColumns>
+Array1D<Type, NumColumns>::Array1D()
+{
+    for (uint8_t col = 0; col < NumColumns; col++)
+    {
+        SetAtIndex(col, (Type)0);
+    }
+}
 
 template<typename Type, uint8_t NumColumns>
 Array1D<Type, NumColumns>::Array1D(std::initializer_list<Type> someArgs)
@@ -60,7 +68,7 @@ void Array1D<Type, NumColumns>::Print(const char* aName) const
     std::cout << "{\t";
     for (uint8_t col = 0; col < NumColumns; col++)
     {
-        std::cout << std::format("{:.2f}", GetAtIndex(col)) << "\t";
+        std::cout << GetAtIndex(col) << "\t";
     }
     std::cout << "}" << std::endl;
     std::cout << "---------------- " << aName << " ----------------\n" << std::endl;
